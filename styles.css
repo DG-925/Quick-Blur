@@ -1,0 +1,19 @@
+body.vc-quickBlur-plugin::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 2147483647;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+    transition: opacity 120ms ease, background 120ms ease, backdrop-filter 120ms ease;
+}
+
+body.vc-quickBlur-plugin.vc-quickBlur-active::before {
+    opacity: 1;
+    background: rgba(0, 0, 0, var(--vc-quickBlur-dim, 0.1));
+    backdrop-filter: blur(var(--vc-quickBlur-amount, 12px));
+    -webkit-backdrop-filter: blur(var(--vc-quickBlur-amount, 12px));
+}
